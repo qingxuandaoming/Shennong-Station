@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神农驿站</title>
+    <style>
+        /* 保留原有的样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .carousel {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel img.active {
+            opacity: 1;
+        }
+        .hero {
+            background-image: url('官网LOGO.png');
+            background-size: cover;
+            background-position: center;
+            height: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+        .footer-section p, .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* 更新的社交图标样式 */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icon {
+            position: relative;
+            display: inline-block;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        .social-icon img {
+            width: 30px;
+            height: 30px;
+            transition: all 0.3s ease;
+        }
+        .social-icon .qr-code {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover .qr-code {
+            display: block;
+            width: 150px;
+            height: 150px;
+        }
+        .social-icon:hover img:not(.qr-code) {
+            filter: hue-rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#products">产品</a>
+            <a href="#community">社区</a>
+            <a href="#consulting">咨询</a>
+            <a href="#team">团队与发展</a>
+        </nav>
+    </header>
+    
+    <div class="carousel">
+        <img src="轮播图片1.png" alt="Image 1" class="active">
+        <img src="轮播图片2.png" alt="Image 2">
+        <img src="轮播图片3.png" alt="Image 3">
+        <img src="轮播图片4.png" alt="Image 4">
+    </div>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>欢迎来到我们的网站</h1>
+            <p>智慧联结千里沃土，</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科技孕育万亩良田。</p>
+        </div>
+    </div>
+    <!-- 保持原有的header, carousel, 和hero部分不变 -->
+
+    <footer>
+        <div class="footer-section">
+            <h3>支持单位</h3>
+            <p>主办单位：河北经贸大学管信学院</p>
+            <p>合作单位：烟台大学法学院</p>
+            <p>赞助者：暂无</p>
+        </div>
+        <div class="footer-section">
+            <h3>联系我们</h3>
+            <p>Email: 925342921@qq.com</p>
+            <p>地址: 河北经贸大学</p>
+        </div>
+        <div class="footer-section">
+            <h3>关注我们</h3>
+            <div class="social-icons">
+                <div class="social-icon">
+                    <img src="wechat白.png" alt="WeChat">
+                    <img src="wechat_qr.png" alt="WeChat QR Code" class="qr-code">
+                </div>
+                <div class="social-icon">
+                    <img src="wechat_service.png" alt="WeChat Service">
+                    <img src="wechat_service_qr.png" alt="WeChat Service QR Code" class="qr-code">
+                </div>
+                <div class="social-icon">
+                    <img src="douyin.png" alt="Douyin">
+                    <img src="抖音二维码.jpg" alt="抖音二维码" class="qr-code">
+                </div>
+                <div class="social-icon">
+                    <img src="bilibili.png" alt="Bilibili">
+                    <img src="哔哩哔哩二维码.jpg" alt="哔哩哔哩二维码" class="qr-code">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 轮播图脚本
+        const carousel = document.querySelector('.carousel');
+        const images = carousel.querySelectorAll('img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 3000); // 每3秒切换一次图片
+    </script>
+</body>
+</html>
